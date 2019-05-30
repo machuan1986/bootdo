@@ -49,6 +49,7 @@ public class UserController extends BaseController {
 	@GetMapping("/list")
 	@ResponseBody
 	PageUtils list(@RequestParam Map<String, Object> params) {
+		params.put("isQuerySuper",'0');
 		// 查询列表数据
 		Query query = new Query(params);
 		List<UserDO> sysUserList = userService.list(query);

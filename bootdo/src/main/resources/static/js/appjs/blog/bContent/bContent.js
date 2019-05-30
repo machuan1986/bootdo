@@ -112,11 +112,6 @@ function load() {
 									title : ''
 								},
 								{
-									field : 'commentsNum',
-									title : '评论数量',
-									width :40
-								},
-								{
 									field : 'status',
 									title : '状态',
 									align : 'center',
@@ -129,33 +124,8 @@ function load() {
 									}
 								},
 								{
-									field : 'allowComment',
-									title : '开启评论',
-									align : 'center',
-									formatter : function(value, row, index) {
-										if (value == '0') {
-											return '<span class="label label-danger">否</span>';
-										} else if (value == '1') {
-											return '<span class="label label-primary">是</span>';
-										}
-									}
-								},
-								{
-									visible : false,
-									field : 'allowPing',
-									title : '允许ping',
-									align : 'center',
-									formatter : function(value, row, index) {
-										if (value == '0') {
-											return '<span class="label label-danger">否</span>';
-										} else if (value == '1') {
-											return '<span class="label label-primary">是</span>';
-										}
-									}
-								},
-								{
 									field : 'allowFeed',
-									title : '允许订阅',
+									title : '是否公开',
 									align : 'center',
 									formatter : function(value, row, index) {
 										if (value == '0') {

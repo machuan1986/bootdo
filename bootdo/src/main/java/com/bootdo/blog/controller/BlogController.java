@@ -5,6 +5,7 @@ import com.bootdo.blog.service.ContentService;
 import com.bootdo.common.utils.DateUtils;
 import com.bootdo.common.utils.PageUtils;
 import com.bootdo.common.utils.Query;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,6 +32,10 @@ public class BlogController {
 	@ResponseBody
 	@GetMapping("/open/list")
 	public PageUtils opentList(@RequestParam Map<String, Object> params) {
+		Object principal = SecurityUtils.getSubject().getPrincipal();
+		if(null==principal){
+			params.put("allowFeed","1");
+		}
 		Query query = new Query(params);
 		List<ContentDO> bContentList = bContentService.list(query);
 		int total = bContentService.count(query);
